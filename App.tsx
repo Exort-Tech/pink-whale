@@ -1,23 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import useCachedResources from 'hooks/useCachedResources';
+import "firebase/auth";
+import SignUp from 'screens/signUp'
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+const Stack = createStackNavigator();
 
-export default function App() {
+
+const  App = () => {
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
 
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+         <NavigationContainer>
+        <Stack.Navigator
+
+          initialRouteName={'Sign Up'}>
+          <Stack.Screen
+            options={{
+              headerLeft: () => null,
+            }}
+            name="Sign Up"
+            component={SignUp}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
       </SafeAreaProvider>
     );
   }
 }
+
+export default App
