@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import Colors from 'constants/Colors';
 import { shadows } from 'constants/Layout';
+import { format } from 'date-fns';
 
 interface SubscriptionProps {
   sub: Sub;
@@ -10,6 +11,8 @@ interface SubscriptionProps {
 }
 
 const Subscription = ({ sub, deleteSub, editSub }: SubscriptionProps) => {
+  const formatedDate = format(new Date(2020, 1, sub.date), 'do');
+
   return (
     <TouchableOpacity
       style={styles.touchable}
@@ -18,7 +21,7 @@ const Subscription = ({ sub, deleteSub, editSub }: SubscriptionProps) => {
       <View style={styles.container}>
         <Text style={styles.text}>{sub.name} will take </Text>
         <Text style={styles.text}>£{sub.price} </Text>
-        <Text style={styles.text}>On the {sub.date}th of the month</Text>
+        <Text style={styles.text}>On the {formatedDate} of the month</Text>
       </View>
     </TouchableOpacity>
   );
