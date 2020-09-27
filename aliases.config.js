@@ -4,5 +4,4 @@ module.exports = {
   constants: './src/constants',
   hooks: './src/hooks',
   screens: './src/screens',
-  Firebase: './src/Firebase'
 };

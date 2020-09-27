@@ -3,24 +3,24 @@ import { StyleSheet, View } from 'react-native';
 import Input from 'components/input';
 import Button from 'components/button';
 import LinkText from 'components/linkText';
+
 import * as firebase from 'firebase';
 import { useNavigation } from '@react-navigation/native';
 import { FullScreenLoader } from 'components/loadingIndicator';
 import ErrorMessage from 'components/errorMessage';
 
-const SignUp = () => {
+const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const nav = useNavigation();
-  const handleSignUp = () => {
+  const handleLogin = () => {
     setLoading(true);
-
-    const signUp = async () => {
+    const login = async () => {
       try {
-        await firebase.auth().createUserWithEmailAndPassword(email, password);
+        await firebase.auth().signInWithEmailAndPassword(email, password);
         nav.navigate('Home');
       } catch (error) {
         console.log(error);
@@ -28,7 +28,7 @@ const SignUp = () => {
       }
       setLoading(false);
     };
-    signUp();
+    login();
   };
 
   return (
@@ -51,9 +51,9 @@ const SignUp = () => {
           <ErrorMessage>Looks Like Something went wrong!</ErrorMessage>
         ) : null}
         <View style={styles.buttons}>
-          <Button onPress={handleSignUp}>Sign Up</Button>
-          <LinkText onPress={() => nav.navigate('Login')}>
-            Already A memeber? Login!
+          <Button onPress={handleLogin}>Log In</Button>
+          <LinkText onPress={() => nav.navigate('Sign Up')}>
+            Not A member? Sign Up!
           </LinkText>
         </View>
         <FullScreenLoader visible={loading} />
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#353135',
     width: '90%',
-    height: 400,
+    height: 380,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: 'black',
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUp;
+export default LogIn;

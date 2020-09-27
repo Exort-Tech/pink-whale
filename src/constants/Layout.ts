@@ -1,12 +1,20 @@
-import { Dimensions } from 'react-native';
-
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
-
-export default {
-  window: {
-    width,
-    height,
+import Colors from './Colors';
+export const shadows = {
+  shadowColor: '#000',
+  shadowOffset: {
+    width: 0,
+    height: 1,
   },
-  isSmallDevice: width < 375,
+  shadowOpacity: 0.5,
+  shadowRadius: 1,
+};
+
+export const modalShadows = {
+  shadowColor: Colors.brand,
+  shadowOffset: {
+    width: 0,
+    height: 0,
+  },
+  shadowOpacity: 1,
+  shadowRadius: 10,
 };

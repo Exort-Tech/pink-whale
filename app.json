@@ -1,28 +1,26 @@
 {
   "expo": {
-    "name": "pink-whale",
+    "name": "Subscription Tracker",
     "slug": "pink-whale",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "assets/images/favicon.png"
     }
   }
 }
