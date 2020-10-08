@@ -4,11 +4,11 @@
     "slug": "pink-whale",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "assets/images/icon.png",
+    "icon": "./src/assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "assets/images/splash.png",
+      "image": "./src/assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,10 +17,18 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "com.exorttech.subTracker",
+      "buildNumber": "2"
     },
     "web": {
-      "favicon": "assets/images/favicon.png"
+      "favicon": "./src/assets/images/favicon.png"
+    },
+    "notification": {
+      "icon": "./src/assets/images/icon.png"
+    },
+    "android": {
+      "package": "com.exorttech.subTracker"
     }
   }
 }
